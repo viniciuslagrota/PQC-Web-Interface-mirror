@@ -1,0 +1,119 @@
+<html>
+
+<body>
+   <div class="chart">
+    <canvas id="PT1"></canvas>
+  </div>
+
+<script src="../static/gauge.min.js" crossorigin="anonymous"></script>
+  <script type='text/javascript'>
+
+
+
+    //
+    // Guage init code
+    //
+    var opts = {
+      angle: 0, // The span of the gauge arc
+      lineWidth: 0.44, // The line thickness
+      radiusScale: 1, // Relative radius
+      pointer: {
+        length: 0.71, // // Relative to gauge radius
+        strokeWidth: 0.042, // The thickness
+        color: '#000000' // Fill color
+      },
+      limitMax: false,     // If false, max value increases automatically if value > maxValue
+      limitMin: false,     // If true, the min value of the gauge will be fixed
+      colorStart: '#6FADCF',   // Colors
+      colorStop: '#8FC0DA',    // just experiment with them
+      strokeColor: '#E0E0E0',  // to see which ones work best for you
+      generateGradient: true,
+      highDpiSupport: true,     // High resolution support
+      // renderTicks is Optional
+      renderTicks: {
+        divisions: 3,
+        divWidth: 1.3,
+        divLength: 0.77,
+        divColor: '#333333',
+        subDivisions: 3,
+        subLength: 0.5,
+        subWidth: 0.6,
+        subColor: '#666666'
+      }
+
+    };
+    var target = document.getElementById('foo'); // your canvas element
+    var PT1 = new Gauge(
+        document.getElementById("PT1"), {
+          // max: 400,
+          // dialStartAngle: 180,
+          // dialEndAngle: 0,
+          label: function(value) {
+            return Math.round(value * 100) / 100;
+          }
+        }
+    ).setOptions(opts); // create sexy gauge!
+    PT1.maxValue = 250; // set max gauge value
+    PT1.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+    PT1.animationSpeed = 50; // set animation speed (32 is default value)
+    PT1.set(0); // set actual value
+
+
+
+    // var PT1 = new Gauge(
+    // document.getElementById("PT1"), {
+    //   max: 400,
+    //   dialStartAngle: 180,
+    //   dialEndAngle: 0,
+    //   label: function(value) {
+    //     return Math.round(value * 100) / 100;
+    //   }
+    // }
+    // );
+
+    //
+    // End guage init code
+    //
+
+    function callme(){
+    //This promise will resolve when the network call succeeds
+    //Feel free to make a REST fetch using promises and assign it to networkPromise
+    var networkPromise = fetch('/read_sensor')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+        //
+        // Set guage code
+        //
+
+        console.log(data[0]['l1_voltage']/1000);
+        PT1.set(data[0]['l1_voltage']/1000);
+
+        // PT1.set(data['a1']);
+
+
+        //
+        // End set guage code
+        //
+
+      });
+
+
+    //This promise will resolve when 2 seconds have passed
+    var timeOutPromise = new Promise(function(resolve, reject) {
+      // 2 Second delay
+      setTimeout(resolve, 5000, 'Timeout Done');
+    });
+
+    Promise.all(
+    [networkPromise, timeOutPromise]).then(function(values) {
+      console.log("Atleast 5 secs + TTL (Network/server)");
+      //Repeat
+      callme();
+    });
+    }
+    callme();
+  </script>
+</body>
+</html>
