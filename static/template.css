@@ -1,0 +1,51 @@
+/*.gauge_labels*/
+/*{*/
+/*    font-family:sans-serif;*/
+/*    font-size:16px;*/
+/*}*/
+
+.sm_title
+{
+  text-align:center;
+  background: #f9f9f9; position: center;
+  width: 100%;
+  height: 50px;
+}
+
+.sm_title_label
+{
+  position: center;
+  text-align: center; font-size: 25px; font-weight: bold;
+  color: black; font-family: 'Amaranth', sans-serif;
+}
+
+.chart {
+  background: #f9f9f9; position: relative;
+  display: flex;
+  color: #fff;
+  float: left;
+  width: 100%;
+  height: 250px;
+  margin: 0 0 0 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+.canvas_space
+{
+    text-align:center;
+}
+
+.gauges_values{
+  width: 380px; top: 100px;
+  position: center;
+}
+
+.gauge_labels{
+  position: center;
+    /*left: 50px;*/
+  text-align: center; font-size: 20px; font-weight: bold;
+  color: black; font-family: 'Amaranth', sans-serif;
+}

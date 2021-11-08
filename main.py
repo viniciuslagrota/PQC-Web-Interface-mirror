@@ -13,19 +13,21 @@ import random
 
 # print("Web interface system monitoring using lask (ver {})".format(flask.__version__))
 
+# TODO: tentar nao desconectar.
+
 app = Flask(__name__)
 
-@app.route('/read_sensor')
+@app.route('/get_server_data')
 def read_sensor():
-    # Create a TCP/IP socket
-    print("Creating socket...")
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    # Connect the socket to the port where the server is listening
-    server_address = ('192.168.1.100', 5001)
-    # print >>sys.stderr, 'connecting to %s port %s' % server_address
-    print("Connecting to {0[0]} port {0[1]}...".format(server_address))
-    sock.connect(server_address)
+    # # Create a TCP/IP socket
+    # print("Creating socket...")
+    # sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #
+    # # Connect the socket to the port where the server is listening
+    # server_address = ('192.168.1.100', 5001)
+    # # print >>sys.stderr, 'connecting to %s port %s' % server_address
+    # print("Connecting to {0[0]} port {0[1]}...".format(server_address))
+    # sock.connect(server_address)
 
     try:
         # Send data
@@ -42,20 +44,19 @@ def read_sensor():
 
             json_data = json.loads(data)
 
-            print("Json (type {}): {}".format(type(json_data), json_data))
-            for key in json_data:
-                print("Item found: {}".format(key))
-                print("Device name: {}".format(json_data[key]['device_name']))
-                print("Timestamp: {}".format(json_data[key]['timestamp']))
-                print("L1 voltage: {} mV".format(json_data[key]['l1_voltage']))
-                # TODO: mandar aqui para a interface flask
+            # print("Json (type {}): {}".format(type(json_data), json_data))
+            # for key in json_data:
+            #     print("Item found: {}".format(key))
+            #     print("Device name: {}".format(json_data[key]['device_name']))
+            #     print("Timestamp: {}".format(json_data[key]['timestamp']))
+            #     print("L1 voltage: {} mV".format(json_data[key]['l1_voltage']))
 
         else:
             print("Disconnected")
 
     finally:
-        print("Closing socket.")
-        sock.close()
+        print("Finalizing.")
+        # sock.close()
 
 
 
@@ -73,10 +74,19 @@ def read_sensor():
 
 @app.route('/')
 def index():
-    # return '<h1>Olá Flask!</h1>'
     return render_template('index.html')
 
 if __name__ == "__main__":
+    # Create a TCP/IP socket
+    print("Creating socket...")
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    # Connect the socket to the port where the server is listening
+    server_address = ('192.168.1.100', 5001)
+    # print >>sys.stderr, 'connecting to %s port %s' % server_address
+    print("Connecting to {0[0]} port {0[1]}...".format(server_address))
+    sock.connect(server_address)
+
     app.run()
 
 
