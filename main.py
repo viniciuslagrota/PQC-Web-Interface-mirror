@@ -82,7 +82,7 @@ if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     # Connect the socket to the port where the server is listening
-    server_address = ('192.168.1.100', 5001)
+    server_address = ('192.168.1.2', 5001)
     # print >>sys.stderr, 'connecting to %s port %s' % server_address
     print("Connecting to {0[0]} port {0[1]}...".format(server_address))
     sock.connect(server_address)

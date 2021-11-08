@@ -4,46 +4,96 @@
     </head>
 
     <body>
-        <div class="sm_title">
-            <label class="sm_title_label" id="sm_0_label">Smart Meter 0</label><br>
+        <div class="general_title">
+            <label class="general_title_label" >Sistema de monitoramento</label><br>
         </div>
-        <div class="chart">
-            <div class="canvas_space" style="width: 33%;">
-                <label class="gauge_labels">Voltage L1 (mV)</label><br>
-                <canvas class="gauges_values" id="V1"></canvas>
-                <div class="gauge_labels" id="V1_textfield"></div>
+        <div class="sm_div" id="sm0">
+            <div class="sm_title">
+                <label class="sm_title_label" id="sm0_label">Smart Meter 0</label><br>
             </div>
-            <div class="canvas_space" style="flex-grow: 1;">
-                <label class="gauge_labels">Voltage L2 (mV)</label><br>
-                <canvas class="gauges_values" id="V2"></canvas>
-                <div class="gauge_labels" id="V2_textfield"></div>
+            <div class="chart">
+                <div class="canvas_space" style="width: 33%;">
+                    <label class="gauge_labels">Voltage L1 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm0_V1"></canvas>
+                    <div class="gauge_labels" id="sm0_V1_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Voltage L2 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm0_V2"></canvas>
+                    <div class="gauge_labels" id="sm0_V2_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Voltage L3 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm0_V3"></canvas>
+                    <div class="gauge_labels" id="sm0_V3_textfield"></div>
+                </div>
             </div>
-            <div class="canvas_space" style="flex-grow: 1;">
-                <label class="gauge_labels">Voltage L3 (mV)</label><br>
-                <canvas class="gauges_values" id="V3"></canvas>
-                <div class="gauge_labels" id="V3_textfield"></div>
+            <div class="chart">
+                <div class="canvas_space" style="width: 25%;">
+                    <label class="gauge_labels">Current L1 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm0_A1"></canvas>
+                    <div class="gauge_labels" id="sm0_A1_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current L2 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm0_A2"></canvas>
+                    <div class="gauge_labels" id="sm0_A2_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current L3 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm0_A3"></canvas>
+                    <div class="gauge_labels" id="sm0_A3_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current N (mA)</label><br>
+                    <canvas class="gauges_values" id="sm0_AN"></canvas>
+                    <div class="gauge_labels" id="sm0_AN_textfield"></div>
+                </div>
             </div>
         </div>
-        <div class="chart">
-            <div class="canvas_space" style="width: 25%;">
-                <label class="gauge_labels">Current L1 (mA)</label><br>
-                <canvas class="gauges_values" id="A1"></canvas>
-                <div class="gauge_labels" id="A1_textfield"></div>
+        <br>
+        <div id="sm1">
+            <div class="sm_title">
+                <label class="sm_title_label" id="sm1_label">Smart Meter 1</label><br>
             </div>
-            <div class="canvas_space" style="flex-grow: 1;">
-                <label class="gauge_labels">Current L2 (mA)</label><br>
-                <canvas class="gauges_values" id="A2"></canvas>
-                <div class="gauge_labels" id="A2_textfield"></div>
+            <div class="chart">
+                <div class="canvas_space" style="width: 33%;">
+                    <label class="gauge_labels">Voltage L1 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm1_V1"></canvas>
+                    <div class="gauge_labels" id="sm1_V1_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Voltage L2 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm1_V2"></canvas>
+                    <div class="gauge_labels" id="sm1_V2_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Voltage L3 (mV)</label><br>
+                    <canvas class="gauges_values" id="sm1_V3"></canvas>
+                    <div class="gauge_labels" id="sm1_V3_textfield"></div>
+                </div>
             </div>
-            <div class="canvas_space" style="flex-grow: 1;">
-                <label class="gauge_labels">Current L3 (mA)</label><br>
-                <canvas class="gauges_values" id="A3"></canvas>
-                <div class="gauge_labels" id="A3_textfield"></div>
-            </div>
-            <div class="canvas_space" style="flex-grow: 1;">
-                <label class="gauge_labels">Current N (mA)</label><br>
-                <canvas class="gauges_values" id="AN"></canvas>
-                <div class="gauge_labels" id="AN_textfield"></div>
+            <div class="chart">
+                <div class="canvas_space" style="width: 25%;">
+                    <label class="gauge_labels">Current L1 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm1_A1"></canvas>
+                    <div class="gauge_labels" id="sm1_A1_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current L2 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm1_A2"></canvas>
+                    <div class="gauge_labels" id="sm1_A2_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current L3 (mA)</label><br>
+                    <canvas class="gauges_values" id="sm1_A3"></canvas>
+                    <div class="gauge_labels" id="sm1_A3_textfield"></div>
+                </div>
+                <div class="canvas_space" style="flex-grow: 1;">
+                    <label class="gauge_labels">Current N (mA)</label><br>
+                    <canvas class="gauges_values" id="sm1_AN"></canvas>
+                    <div class="gauge_labels" id="sm1_AN_textfield"></div>
+                </div>
             </div>
         </div>
 
