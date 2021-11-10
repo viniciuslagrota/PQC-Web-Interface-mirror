@@ -75,188 +75,61 @@
         }
     };
 
-    var sm0_V1 = new Gauge(
-        document.getElementById("sm0_V1"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts); // create sexy gauge!
-    sm0_V1.setTextField(document.getElementById("sm0_V1_textfield"));
-    sm0_V1.maxValue = maxVoltage; // set max gauge value
-    sm0_V1.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_V1.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_V1.set(0); // set actual value
+    var sm = [];
+    for (var i = 0; i < 2; i++)
+    {
+        sm[i] = [];
 
-    var sm0_V2 = new Gauge(
-        document.getElementById("sm0_V2"), {
-          label: function(value) {
-            return value;
-          }
+        for(var j = 1; j <= 3; j++)
+        {
+           var elementId = 'sm'+i.toString()+'_V'+j.toString()
+            sm[i][j] = new Gauge(
+                document.getElementById(elementId), {
+                  label: function(value) {
+                    return value;
+                  }
+                }
+            ).setOptions(opts); // create sexy gauge!
+            elementId = elementId+'_textfield'
+            sm[i][j].setTextField(document.getElementById(elementId));
+            sm[i][j].maxValue = maxVoltage; // set max gauge
+            sm[i][j].setMinValue(0);  // Prefer setter over gauge.minValue = 0
+            sm[i][j].animationSpeed = 50; // set animation speed (32 is default value)
+            sm[i][j].set(0); // set actual value
         }
-    ).setOptions(opts); // create sexy gauge!
-    sm0_V2.setTextField(document.getElementById("sm0_V2_textfield"))
-    sm0_V2.maxValue = maxVoltage; // set max gauge value
-    sm0_V2.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_V2.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_V2.set(0); // set actual value
-
-    var sm0_V3 = new Gauge(
-        document.getElementById("sm0_V3"), {
-          label: function(value) {
-            return value;
-          }
+        for(var j = 1; j <= 3; j++)
+        {
+            elementId = 'sm'+i.toString()+'_A'+j.toString()
+            sm[i][j+3] = new Gauge(
+                document.getElementById(elementId), {
+                  label: function(value) {
+                    return value;
+                  }
+                }
+            ).setOptions(opts_current); // create sexy gauge!
+            elementId = elementId+'_textfield'
+            sm[i][j+3].setTextField(document.getElementById(elementId));
+            sm[i][j+3].maxValue = maxCurrent; // set max gauge
+            sm[i][j+3].setMinValue(0);  // Prefer setter over gauge.minValue = 0
+            sm[i][j+3].animationSpeed = 50; // set animation speed (32 is default value)
+            sm[i][j+3].set(0); // set actual value
         }
-    ).setOptions(opts); // create sexy gauge!
-    sm0_V3.setTextField(document.getElementById("sm0_V3_textfield"))
-    sm0_V3.maxValue = maxVoltage; // set max gauge value
-    sm0_V3.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_V3.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_V3.set(0); // set actual value
-
-    var sm0_A1 = new Gauge(
-        document.getElementById("sm0_A1"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm0_A1.setTextField(document.getElementById("sm0_A1_textfield"))
-    sm0_A1.maxValue = maxCurrent; // set max gauge value
-    sm0_A1.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_A1.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_A1.set(0); // set actual value
-
-    var sm0_A2 = new Gauge(
-        document.getElementById("sm0_A2"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm0_A2.setTextField(document.getElementById("sm0_A2_textfield"))
-    sm0_A2.maxValue = maxCurrent; // set max gauge value
-    sm0_A2.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_A2.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_A2.set(0); // set actual value
-
-    var sm0_A3 = new Gauge(
-        document.getElementById("sm0_A3"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm0_A3.setTextField(document.getElementById("sm0_A3_textfield"))
-    sm0_A3.maxValue = maxCurrent; // set max gauge value
-    sm0_A3.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_A3.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_A3.set(0); // set actual value
-
-    var sm0_AN = new Gauge(
-        document.getElementById("sm0_AN"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm0_AN.setTextField(document.getElementById("sm0_AN_textfield"))
-    sm0_AN.maxValue = maxCurrent; // set max gauge value
-    sm0_AN.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm0_AN.animationSpeed = 50; // set animation speed (32 is default value)
-    sm0_AN.set(0); // set actual value
-
-    var sm1_V1 = new Gauge(
-        document.getElementById("sm1_V1"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts); // create sexy gauge!
-    sm1_V1.setTextField(document.getElementById("sm1_V1_textfield"));
-    sm1_V1.maxValue = maxVoltage; // set max gauge value
-    sm1_V1.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_V1.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_V1.set(0); // set actual value
-
-    var sm1_V2 = new Gauge(
-        document.getElementById("sm1_V2"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts); // create sexy gauge!
-    sm1_V2.setTextField(document.getElementById("sm1_V2_textfield"))
-    sm1_V2.maxValue = maxVoltage; // set max gauge value
-    sm1_V2.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_V2.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_V2.set(0); // set actual value
-
-    var sm1_V3 = new Gauge(
-        document.getElementById("sm1_V3"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts); // create sexy gauge!
-    sm1_V3.setTextField(document.getElementById("sm1_V3_textfield"))
-    sm1_V3.maxValue = maxVoltage; // set max gauge value
-    sm1_V3.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_V3.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_V3.set(0); // set actual value
-
-    var sm1_A1 = new Gauge(
-        document.getElementById("sm1_A1"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm1_A1.setTextField(document.getElementById("sm1_A1_textfield"))
-    sm1_A1.maxValue = maxCurrent; // set max gauge value
-    sm1_A1.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_A1.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_A1.set(0); // set actual value
-
-    var sm1_A2 = new Gauge(
-        document.getElementById("sm1_A2"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm1_A2.setTextField(document.getElementById("sm1_A2_textfield"))
-    sm1_A2.maxValue = maxCurrent; // set max gauge value
-    sm1_A2.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_A2.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_A2.set(0); // set actual value
-
-    var sm1_A3 = new Gauge(
-        document.getElementById("sm1_A3"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm1_A3.setTextField(document.getElementById("sm1_A3_textfield"))
-    sm1_A3.maxValue = maxCurrent; // set max gauge value
-    sm1_A3.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_A3.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_A3.set(0); // set actual value
-
-    var sm1_AN = new Gauge(
-        document.getElementById("sm1_AN"), {
-          label: function(value) {
-            return value;
-          }
-        }
-    ).setOptions(opts_current); // create sexy gauge!
-    sm1_AN.setTextField(document.getElementById("sm1_AN_textfield"))
-    sm1_AN.maxValue = maxCurrent; // set max gauge value
-    sm1_AN.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-    sm1_AN.animationSpeed = 50; // set animation speed (32 is default value)
-    sm1_AN.set(0); // set actual value
-
+        elementId = 'sm'+i.toString()+'_AN'
+        sm[i][7] = new Gauge(
+            document.getElementById(elementId), {
+              label: function(value) {
+                return value;
+              }
+            }
+        ).setOptions(opts_current); // create sexy gauge!
+        elementId = elementId+'_textfield'
+        sm[i][7].setTextField(document.getElementById(elementId));
+        sm[i][7].maxValue = maxCurrent; // set max gauge
+        sm[i][7].setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        sm[i][7].animationSpeed = 50; // set animation speed (32 is default value)
+        sm[i][7].set(0); // set actual value
+    }
+    console.log(sm);
 
     function callme(){
     //This promise will resolve when the network call succeeds
@@ -266,62 +139,45 @@
       .then(data => {
         console.log(data);
 
-        if('0' in data)
+        for(var i = 0; i < 2; i++)
         {
-            console.log('Element 0 found.');
-            document.getElementById('sm0').style.display = 'inline';
-            document.getElementById('sm0_label').innerHTML = data[0]['device_name'];
+            if(i.toString() in data)
+            {
+                console.log('Element '+i+' found.');
+                var elementId = 'sm'+i.toString();
+                document.getElementById(elementId).style.display = 'inline';
+                elementId = elementId + '_label';
+                document.getElementById(elementId).innerHTML = data[i]['device_name'];
 
-            sm0_V1.set(data[0]['l1_voltage']);
-            sm0_V2.set(data[0]['l2_voltage']);
-            sm0_V3.set(data[0]['l3_voltage']);
-            sm0_A1.set(data[0]['l1_current']);
-            sm0_A2.set(data[0]['l2_current']);
-            sm0_A3.set(data[0]['l3_current']);
-            sm0_AN.set(data[0]['n_current']);
-        }
-        else
-        {
-            console.log('Element 0 not found.');
-            document.getElementById('sm0').style.display = 'none';
-        }
+                sm[i][1].set(data[i]['l1_voltage']);
+                sm[i][2].set(data[i]['l2_voltage']);
+                sm[i][3].set(data[i]['l3_voltage']);
+                sm[i][4].set(data[i]['l1_current']);
+                sm[i][5].set(data[i]['l2_current']);
+                sm[i][6].set(data[i]['l3_current']);
+                sm[i][7].set(data[i]['n_current']);
 
-        if('1' in data)
-        {
-            console.log('Element 1 found.');
-            document.getElementById('sm1').style.display = 'inline';
-            document.getElementById('sm1_label').innerHTML = data[1]['device_name'];
-
-            sm1_V1.set(data[1]['l1_voltage']);
-            sm1_V2.set(data[1]['l2_voltage']);
-            sm1_V3.set(data[1]['l3_voltage']);
-            sm1_A1.set(data[1]['l1_current']);
-            sm1_A2.set(data[1]['l2_current']);
-            sm1_A3.set(data[1]['l3_current']);
-            sm1_AN.set(data[1]['n_current']);
+                elementId = 'sm' + i.toString() + '_timestamp';
+                document.getElementById(elementId).innerHTML = 'Timestamp: ' + data[i]['timestamp'];
+            }
+            else
+            {
+                console.log('Element '+i+' not found.');
+                var elementId = 'sm'+i.toString();
+                document.getElementById(elementId).style.display = 'none';
+            }
         }
-        else
-        {
-            console.log('Element 1 not found.');
-            document.getElementById('sm1').style.display = 'none';
-        }
-
       });
-
-
-
-
-
 
     //This promise will resolve when 2 seconds have passed
     var timeOutPromise = new Promise(function(resolve, reject) {
       // 2 Second delay
-      setTimeout(resolve, 3000, 'Timeout Done');
+      setTimeout(resolve, 5000, 'Timeout Done');
     });
 
     Promise.all(
     [networkPromise, timeOutPromise]).then(function(values) {
-      console.log("Atleast 3 secs + TTL (Network/server)");
+      console.log("Atleast 5 secs + TTL (Network/server)");
       //Repeat
       callme();
     });
